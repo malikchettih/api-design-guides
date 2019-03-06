@@ -2,7 +2,7 @@
 
 When designing an API, pause for a second and think. What are the forces driving changes in my product.
 
-## Open API Design
+## 1. Open API Design
 
 When API model is designed, it has to be:
 ### Be "Semantically Right", not just "Syntactically Right".
@@ -21,7 +21,7 @@ When API model is designed, it has to be:
 1. APIs are more than "sockets where I plug in a cable".
 2. API contracts are scoped to a <b>Bounded Context</b>.
 
-## API Check List
+## 2. API Check List
 
 - High level description Comprehensive High level description message to facilitate the adoption
 - Naming Conventions Compliance with the wording, usage of nouns, verbs , RPC style versus REST style , REST maturity level
@@ -32,7 +32,7 @@ When API model is designed, it has to be:
 - Documentation Static documentation, Behavioral documentation, Global description, Sample
 - Mocking API mock that allow API consumer to build their client. Level complexity implemented
 
-## API Versioning
+## 3. API Versioning
 
 There is still 2 notions of the versioning : 
 - <b>public versioning</b> , will directly impact your client , we materialize it using path . Here we consider only breaking changes 
@@ -87,5 +87,37 @@ Example
 FR-ch
 ```
 
+## 4. Data Standards
 
+APIs <b>MUST</b> support JSON format.
 
+The API client <b>MUST NOT</b> rely on the ordering of properties or values within the JSON payload.
+
+APIs must use ISO 8601 representations of both Date and DateTime types in JSON payloads.
+
+APIs <b>SHOULD NOT</b> use TimeStamp types within JSON payloads.
+
+APIs <b>SHOULD</b> define a dedicated content type when transferring binary as base64 encoded text.
+
+## 5. Tokenization
+
+APIs <b>MAY</b> protect against enumeration attacks. Tokenization must be applied to share public content. Token represents the secret.
+
+```
+GET /resources/3
+GET /resources/4
+GET /resources/5
+...
+GET /resources/10
+```
+Tokenization is one solution to this problem. Instead of returning the <b>integer id</b>, return a <b>uuid</b> id which has been permanently mapped to the original id.
+
+```
+GET /resources/11755216-8bbd-423f-a596-373d66f8840b
+GET /resources/2f51533d-ace4-4801-9adb-2bca259f7852
+GET /resources/6f651922-d5c5-4fba-a1c5-ba62a069bc17
+...
+GET /resources/53d58cd7-17bd-4e49-b04f-a7082ea40dd2
+```
+
+The tokenization capability can be added onto legacy services as a proxy, or as a plug-in at the API gateway.
