@@ -79,4 +79,18 @@ In scope for APIs:
 
 APIs which support either Localization or Internationalization MUST understand the <b>Accept-Language</b> header to facilitate content negotiation with the client and inform the client of the selection in the <b>Content-Language</b> header.
 
+The standard HTTP Header <b>Accept-Language</b> informs the service which languages the client is able to understand, and which locale variant is preferred. Using content negotiation, the service selects one of the proposed language and locales, and confirms the selection within the response header.
+
+Content-Language. Browsers use this header to align their UI.
+
+The Accept-Language header format contains two items: language, culture.
+
+In the following example, the French language is identified with the two letter code <b>FR</b>; the Swiss culture/locale, which is optional in this format, is identified with the two letter code <b>ch</b>.
+
+Example
+```
+FR-ch
+```
+
+
 
