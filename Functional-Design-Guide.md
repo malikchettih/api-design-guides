@@ -77,8 +77,6 @@ In scope for APIs:
 • Date-Time
 • Time
 
-```
 APIs which support either Localization or Internationalization MUST understand the <b>Accept-Language</b> header to facilitate content negotiation with the client and inform the client of the selection in the <b>Content-Language</b> header.
-```
 
 
