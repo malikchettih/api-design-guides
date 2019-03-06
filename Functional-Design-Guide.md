@@ -32,5 +32,10 @@ When API model is designed, it has to be:
 - Documentation Static documentation, Behavioral documentation, Global description, Sample
 - Mocking API mock that allow API consumer to build their client. Level complexity implemented
 
+## API Versioning
 
+There is still 2 notions of the versioning : 
+- <b>public versioning</b> , will directly impact your client , we materialize it using path . Here we consider only breaking changes 
+- <b>private versioning</b>, may impact your client, it is when you add end point for instance, change the description.
 
+[] APIs MUST be versioned. Your API private versioning MUST be backwards compatible. if the private versioning introduce a breaking change. You MUST publish a new public version of your API when you are introducing breaking changes to the API contract.
