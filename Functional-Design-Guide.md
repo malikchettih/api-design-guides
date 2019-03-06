@@ -57,7 +57,7 @@ body) of the request is safe.
 - Changing the type of a field.
 - Adding a read/write field to a resource message
 
-## Localization & Internationalization
+## 4. Localization & Internationalization
 
 Out of scope for APIs:
 • Localization
@@ -87,7 +87,7 @@ Example
 FR-ch
 ```
 
-## 4. Data Standards
+## 5. Data Standards
 
 APIs <b>MUST</b> support JSON format.
 
@@ -99,7 +99,7 @@ APIs <b>SHOULD NOT</b> use TimeStamp types within JSON payloads.
 
 APIs <b>SHOULD</b> define a dedicated content type when transferring binary as base64 encoded text.
 
-## 5. Tokenization
+## 6. Tokenization
 
 APIs <b>MAY</b> protect against enumeration attacks. Tokenization must be applied to share public content. Token represents the secret.
 
