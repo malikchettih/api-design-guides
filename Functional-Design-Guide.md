@@ -38,4 +38,11 @@ There is still 2 notions of the versioning :
 - <b>public versioning</b> , will directly impact your client , we materialize it using path . Here we consider only breaking changes 
 - <b>private versioning</b>, may impact your client, it is when you add end point for instance, change the description.
 
-[] APIs MUST be versioned. Your API private versioning MUST be backwards compatible. if the private versioning introduce a breaking change. You MUST publish a new public version of your API when you are introducing breaking changes to the API contract.
+```
+APIs MUST be versioned. Your API private versioning MUST be backwards compatible. if the private versioning introduce a breaking change. You MUST publish a new public version of your API when you are introducing breaking changes to the API contract.
+
+APIs SHOULD differentiate finished API definitions from work in progress.
+
+You MUST NOT deprecate any version which is still being used by
+customers, without a notice period.
+```
