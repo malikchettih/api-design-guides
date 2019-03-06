@@ -16,10 +16,21 @@ When API model is designed, it has to be:
 - The API model should be scoped to exists in  single bounded context. DDD calls that the ubiquituous language.
 - API should be complete and kept simple, ideally doing just 1 atomic thing very well.
 
-## API Have CONTRACTS 
+### API Have CONTRACTS 
 
 1. APIs are more than "sockets where I plug in a cable".
 2. API contracts are scoped to a <b>Bounded Context</b>.
+
+## API Check List
+
+- High level description Comprehensive High level description message to facilitate the adoption
+- Naming Conventions Compliance with the wording, usage of nouns, verbs , RPC style versus REST style , REST maturity level
+- HTTP Verbs Accurate usage of the HTTP verbs POST / GET / DELETE / PUT
+- HTTP Status Codes Accurate usage of HTTP response status code, compliance with RFC
+- HTTP Headers All HTTP headers identified, including the standard ones
+- Security concerns identified: access control, authentication, authorization.
+- Documentation Static documentation, Behavioral documentation, Global description, Sample
+- Mocking API mock that allow API consumer to build their client. Level complexity implemented
 
 
 
