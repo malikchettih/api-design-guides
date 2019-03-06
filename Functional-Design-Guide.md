@@ -43,6 +43,42 @@ APIs MUST be versioned. Your API private versioning MUST be backwards compatible
 
 APIs SHOULD differentiate finished API definitions from work in progress.
 
-You MUST NOT deprecate any version which is still being used by
-customers, without a notice period.
+You MUST NOT deprecate any version which is still being used by customers, without a notice period.
 ```
+
+### Backward compatibility
+
+#### Backward compatible , Non Breaking change
+- Adding an endpoint to an existing API , extending resource end point , adding a verb.
+- Extending the range of a request value.As soon as the parameter is not a mandatory one , adding a parameter in any part query, path,
+body) of the request is safe.
+- Adding a field to a response message (not a resource )
+- Adding a value to an enum
+- Behavioural change, As soon as it is planned by the API is not considered as a breaking change.
+
+#### Backwards-incompatible (breaking) changes
+- Removing or renaming a path, field, enum value.
+- Changing an HTTP binding.
+- Changing the type of a field.
+- Adding a read/write field to a resource message
+
+## Localization & Internationalization
+
+Out of scope for APIs:
+• Localization
+• Translations
+• RTL and other orientations
+• Internationalization
+• Decimal separators
+• Currency
+
+In scope for APIs:
+• Date
+• Date-Time
+• Time
+
+```
+APIs which support either Localization or Internationalization MUST understand the <b>Accept-Language</b> header to facilitate content negotiation with the client and inform the client of the selection in the <b>Content-Language</b> header.
+```
+
+
