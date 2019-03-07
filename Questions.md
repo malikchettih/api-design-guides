@@ -15,4 +15,7 @@
 ## 3. How to version an API
 - Versioning de services REST: https://blog.octo.com/versioning-de-services-rest/
 - Four REST API Versioning Strategies: https://www.xmatters.com/integrations-blog/blog-four-rest-api-versioning-strategies/
+- REST & API Versioning - The complete Reference: https://www.predic8.de/rest-api-versioning.htm
+- Introduction to API Versioning Best Practices: https://nordicapis.com/introduction-to-api-versioning-best-practices/
+- Versioning a REST API: https://www.baeldung.com/rest-versioning
 
