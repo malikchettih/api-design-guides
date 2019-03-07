@@ -3,7 +3,15 @@ Warning: This document is only copy/past notes from https://github.corp.dh.com/p
 
 When designing an API, pause for a second and think. What are the forces driving changes in my product.
 
+## Summary
+
 - [1. Open API Design](#openapi)
+- [2. API Check List](#apicheck)
+- [3. API Versioning](#apiversionning)
+- [4. Localization & Internationalization](#apii18n)
+- [5. Data Standards](#apidata)
+- [6. Tokenization](#apitoken)
+
 
 ## <a id="openapi">1. Open API Design</a>
 
@@ -24,7 +32,7 @@ When API model is designed, it has to be:
 1. APIs are more than "sockets where I plug in a cable".
 2. API contracts are scoped to a <b>Bounded Context</b>.
 
-## 2. API Check List
+## <a id="apicheck">2. API Check List
 
 - High level description Comprehensive High level description message to facilitate the adoption
 - Naming Conventions Compliance with the wording, usage of nouns, verbs , RPC style versus REST style , REST maturity level
@@ -35,7 +43,7 @@ When API model is designed, it has to be:
 - Documentation Static documentation, Behavioral documentation, Global description, Sample
 - Mocking API mock that allow API consumer to build their client. Level complexity implemented
 
-## 3. API Versioning
+## <a id="apiversionning">3. API Versioning
 
 There is still 2 notions of the versioning : 
 - <b>public versioning</b> , will directly impact your client , we materialize it using path . Here we consider only breaking changes 
@@ -60,7 +68,7 @@ body) of the request is safe.
 - Changing the type of a field.
 - Adding a read/write field to a resource message
 
-## 4. Localization & Internationalization
+##<a id="apii18n"> 4. Localization & Internationalization
 
 Out of scope for APIs:
 • Localization
@@ -90,7 +98,7 @@ Example
 FR-ch
 ```
 
-## 5. Data Standards
+## <a id="apidata">5. Data Standards
 
 APIs <b>MUST</b> support JSON format.
 
@@ -102,7 +110,7 @@ APIs <b>SHOULD NOT</b> use TimeStamp types within JSON payloads.
 
 APIs <b>SHOULD</b> define a dedicated content type when transferring binary as base64 encoded text.
 
-## 6. Tokenization
+## <a id="apitoken">6. Tokenization </a>
 
 APIs <b>MAY</b> protect against enumeration attacks. Tokenization must be applied to share public content. Token represents the secret.
 
