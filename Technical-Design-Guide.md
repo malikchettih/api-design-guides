@@ -371,6 +371,13 @@ Accept: application/vnd.{product}.{version}+json
 - APIs MUST declare versions via <b>path parameter</b>. https://{host}/:version/{resource}
 - APIs MUST NOT use semantic versioning.
 
+The version we mention there is the one that have a direct impact on the client. It s based on the path. Swagger provides a field version, where here you can use the semantic versioning of your API, especially when you have new functionality. For instance:
+
+- /v1/accounts + in swagger v1.0.0 for the initial version
+- /v1/accounts + in swagger v1.0.1, is a micro change for instance adding documentation.
+- /v1/accounts + in swagger v1.1.0, is a minor change for instance adding new functionality like adding end points.
+- /v2/accounts + in swagger v2.0.0, is a major change, impact on the path itself, introduction of a breaking change.
+
 ## <a id="7">7. Navigation, Sorting, paging, filtering and seraching and projection</a>
 
 ## <a id="8">8. Asynchronous and long running operation</a>
