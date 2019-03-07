@@ -8,6 +8,11 @@ Warning: This document is copy/past notes from https://github.corp.dh.com/pages/
 - [3. HTTP Methods](#3)
 - [4. HTTP Headers](#4)
 - [5. Error Codes](#5)
+- [6. Navigation, Sorting, paging, filtering and seraching and projection](#6)
+- [7. Asynchronous and long running operation](#7)
+- [8. Caching](#8)
+- [9. Concurrency](#9)
+- [10. Tokenization](#10)
 
 
 ## <a id="1">1. Rest Principals</a>
@@ -277,3 +282,13 @@ Conclusion :
 - 201, 304,400,403 SHOULD BE used.
 - Others like 204, 415, 503 MAY be used with parsimony
 - APIs MUST NOT return 200 (OK) when there is an error or fault.
+
+## <a id="6">6. Navigation, Sorting, paging, filtering and seraching and projection</a>
+
+## <a id="7">7. Asynchronous and long running operation</a>
+
+## <a id="8">8. Caching</a>
+
+## <a id="9">9. Concurrency</a>
+
+## <a id="10">10. Tokenization</a>
