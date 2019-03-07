@@ -68,7 +68,7 @@ body) of the request is safe.
 - Changing the type of a field.
 - Adding a read/write field to a resource message
 
-##<a id="apii18n"> 4. Localization & Internationalization
+## <a id="apii18n"> 4. Localization & Internationalization </a>
 
 Out of scope for APIs:
 • Localization
