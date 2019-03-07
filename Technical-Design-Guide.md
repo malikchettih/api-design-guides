@@ -9,7 +9,7 @@ Warning: This document is copy/past notes from https://github.corp.dh.com/pages/
 - [4. HTTP Headers](#4)
 - [5. Error Codes & RFC 7807](#5)
 - [6. Versioning](#6)
-- [7. Navigation, Sorting, paging, filtering and seraching and projection](#6)
+- [7. Navigation, Sorting, paging, filtering and seraching and projection](#7)
 - [8. Asynchronous and long running operation](#8)
 - [9. Caching](#9)
 - [10. Concurrency](#10)
@@ -379,6 +379,87 @@ The version we mention there is the one that have a direct impact on the client.
 - /v2/accounts + in swagger v2.0.0, is a major change, impact on the path itself, introduction of a breaking change.
 
 ## <a id="7">7. Navigation, Sorting, paging, filtering and seraching and projection</a>
+
+Resource collections <b>SHOULD</b> support pagination
+
+### Sorting 
+- Resource collection APIs <b>SHOULD</b> have a sorting capability.
+- Resource collection APIs <b>MUST</b> have a default sort clearly defined.
+- If there is a limit in the maximum number of sort terms, it MUST be clearly defined.
+- Use <b>sort</b> key word in query param, use desc for reverse order
+
+```
+By age in descending order and then name in ascending order.
+GET /accounts?sort=age+desc,name+asc
+```
+
+### Paging
+
+Offset / limit based pagination is more known than cursor-based pagination, so it has more framework support and is easier to use for API clients.
+
+- The <b>limit</b> parameter controls the maximum number of items that may be returned for a single request. This parameter can be thought of as the page size.
+- The <b>offset</b> parameter controls the starting point within the collection of resource results. For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit=5, you can retrieve the entire set of results in 3 successive requests by varying the offset value: offset=0, offset=5, and offset=10.
+
+Pagination <b>MUST</b> be done using the limit and offset pattern and keyword.
+
+```
+GET /accounts?limit=100 => return the 100 first accounts.
+GET /accounts?offset=100 will return the accounts 101 and more
+GET /accounts?offset=
+```
+
+### Paging output response
+
+#### Solution 1 - Array - Highly not recommanded.
+```
+GET /accounts
+[
+{“id” : 1, “name” : “toto1”},
+{“id” : 2, “name” : “toto2”}
+]
+```
+#### Solution 2 - Collection embedded into a dedicated 'wellknown' attribute.
+```
+GET /orders?limit=3&offset=3
+{
+  "items" : [
+  {
+    "id": 4,
+    "orderNumber": "1210",
+    "status": "new"
+  },
+  {
+    "id": 5,
+    "orderNumber": "1100",
+    "status": "delivered"
+  }],
+  "otherInfoOftheCollection" : "info like sum for instance"
+  "_links": {
+    "self": { "href": "/accounts" },
+    "next": { "href": "/accounts?page=2" },
+    "find": { "href": "/accounts{?id}", "templated": true }
+  },
+  "_meta" :
+  {
+    "timeToCompute" : 12,
+    "inputofTheQuery" : "null"
+  }
+}
+```
+```
+"_meta" :
+{
+  "limit" : 5 // number of item per page
+  "pageCount" : 12 // number of pages
+  "totalCount" : 63 // number of item
+  "page" : 3 // current page
+}
+```
+#### Solution 3 -  Json Hypertext Application Language (HAL)
+HAL, is defined as currently a draft https://tools.ietf.org/html/draft-kelly-json-hal-08
+
+Java HAL impelmentation can be found in https://github.com/mikekelly/hal_specification/wiki/Libraries#java
+
 
 ## <a id="8">8. Asynchronous and long running operation</a>
 
