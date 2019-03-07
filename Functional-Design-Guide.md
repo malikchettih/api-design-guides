@@ -1,4 +1,5 @@
 # Functional Design Guide
+Warning: This document is only copy/past notes from https://github.corp.dh.com/pages/ARPnP/api-design/ documents.
 
 When designing an API, pause for a second and think. What are the forces driving changes in my product.
 
