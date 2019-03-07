@@ -147,3 +147,65 @@ Typical response status code:
 - 404 Not Found, if ID not found or invalid.
 
 ### 3.2. Post
+
+The <b>POST</b> method is used to create new resources. Depending on the specific API context this can mean many things (e.g., creating a resource, executing an action, submitting long running operations, adding an item to a list). * Must inform the client how to access this new resource.
+
+<b>POST /customers + payload</b> ⇒ return 201 ⇒ The industry practice is to return 201 response code with a location header ( optinal return the created resource)
+
+Characteristics:
+- Request Payload : Yes
+- Successful response payload : Yes
+- Safe :No
+- Idempotent :No
+- Informs the API consumer of the location of the new resource via Location header
+
+Typical response status code:
+- 200 (OK) bare minimum MUST
+- 201 (Created) recommended but MAY
+- 400 Bad Request
+- 409 (Conflict) advice if resource already exists. OPTIONAL
+
+<b>In opposition of GET , POST requests are never cached.</b>
+
+### 3.3. Put
+
+The <b>PUT</b> method is used to replace the state of an existing resource with the new state provided in the request. It is a full replacement.
+
+<b>PUT /customers/123 + payload</b> with full content of the resource must be provided ⇒ return expected the full updated resource
+<u><b>PUT /customers/ + payload</b> with a list ⇒ do a batch update</u>
+
+Characteristics:
+- Request Payload : Yes
+- Successful response payload : No
+- Safe : No
+- Idempotent : Yes
+- Cacheable : No
+
+Typical response status code:
+- 200 OK bare minimum MANDATORY
+- 400 Bad Request
+- 404 Not Found
+
+### 3.4. Delete
+
+The <b>DELETE</b> method is used to remove a resource. Depending on the context of the resource this can mean many things (e.g., remove the resource, remove an item from a list, cancel a long running operation).
+
+<b>DELETE /customers/123</b> ⇒ return 204 , so no payload 
+                             ⇒ return 200 , you may return the deleted object
+
+Characteristics:
+- Request Payload : commonly No
+- Successful response Payload : No
+- Safe :No
+- Idempotent :Yes
+- Cacheable : No
+
+Note : When you invoke N similar DELETE requests, first request will delete the resource and response will be 200 (OK) or 204 (No Content). Other N-1 requests will return 404 (Not Found). Clearly, the response is different from first request, but there is no change of state for any resource on server side because original resource is already deleted. So, DELETE is idempotent.
+
+Typical response status code:
+- 200 OK
+- 204 No content OPTIONAL
+- 400 Bad Request
+- 404 Not Found, if ID not found or invalid
+
+### 3.5. Bulk Operations
