@@ -19,3 +19,8 @@
 - Introduction to API Versioning Best Practices: https://nordicapis.com/introduction-to-api-versioning-best-practices/
 - Versioning a REST API: https://www.baeldung.com/rest-versioning
 
+## 4. How to implements RFC 7807
+- REST API Error Handling - Problem Details Response: https://blog.restcase.com/rest-api-error-handling-problem-details-response/
+- Zalando problem-spring-web implementation : https://github.com/zalando/restful-api-guidelines
+
+
