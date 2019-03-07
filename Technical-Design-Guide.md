@@ -30,25 +30,25 @@ Level | Name | Description
 
 #### 1. Entry level
 The version of the operations/resources are specified as a integer in the basepath
-• Scheme is set to https only 
-• API Keys are only accepted as header parameters 
-• The Finastra info object template has been implemented 
-• consumes and produce are set to application/json at the top level 
-• paths/resources are simple and exoteric instead of abstract and esoteric 
-• The correct verbs are used for method calls 
-• Applies the prescribed security practice 
-• Request objects are validated
+- Scheme is set to https only 
+- API Keys are only accepted as header parameters 
+- The Finastra info object template has been implemented 
+- consumes and produce are set to application/json at the top level 
+- paths/resources are simple and exoteric instead of abstract and esoteric 
+- The correct verbs are used for method calls 
+- Applies the prescribed security practice 
+- Request objects are validated
 
 #### 2. Advance level
-• Meets all of the Entry level requirements • 
-Conforms to the Finastra error handling standards 
-• Swagger descriptions are used well to generate good human readable automatically generated docs. In other words copy for all of the descriptions are supplied or approved by Product Management or functional representative for the Product  # Full level 
-• Meets all of the Advanced level requirements 
-• Applies all of the Finastra approved data structures and naming conventions to the Swagger paths and definitions 
-• usage of links and HOATEAS likes
+- Meets all of the Entry level requirements 
+- Conforms to the Finastra error handling standards 
+- Swagger descriptions are used well to generate good human readable automatically generated docs. In other words copy for all of the descriptions are supplied or approved by Product Management or functional representative for the Product  # Full level 
+- Meets all of the Advanced level requirements 
+- Applies all of the Finastra approved data structures and naming conventions to the Swagger paths and definitions 
+- usage of links and HOATEAS likes
 
 #### 3. Cutting edge
-• Meets all of the Fully Compliant level requirements 
-• Is up to date within 6 month of any additions to the Finastra Open API Standards 
-• Good use of markdown in descriptions
+- Meets all of the Fully Compliant level requirements 
+- Is up to date within 6 month of any additions to the Finastra Open API Standards 
+- Good use of markdown in descriptions
 
