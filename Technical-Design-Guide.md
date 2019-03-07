@@ -1,4 +1,5 @@
 # Technical Design Guide
+Warning: This document is only copy/past notes from https://github.corp.dh.com/pages/ARPnP/api-design/ documents.
 
 ## 1. Rest Principals
 
@@ -125,5 +126,24 @@ PUT | Full update/replace of the resource
 PATCH | Partial update of a resource <b>(typically avoided)</b>
 DELETE | Delete a resource
 
+### 3.1. Get
 
+The <b>GET</b> method is used to query an HTTP service. 
 
+- <b> GET /customers/{id}</b> ⇒ return the customer identified with 123
+- <b>GET /customers</b> ⇒ return list of customers. This SHOULD be implemented, and if makes sens with pagination, and search.
+
+Characteristics:
+- Request Payload : no
+- Successful response payload: Yes
+- Safe : Yes
+- Idempotent : Yes
+- Read-only
+- Cacheable : Yes
+
+Typical response status code:
+- 200 OK
+- 400 Bad Request
+- 404 Not Found, if ID not found or invalid.
+
+### 3.2. Post
