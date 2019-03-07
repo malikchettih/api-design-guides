@@ -5,7 +5,7 @@
 REST stands for <b>REpresentation State Transfer (REST)</b>. Any information that can be named can be a resource: a document or image, a temporal service (e.g. "today’s weather in Los Angeles"), a collection of other resources, a non-virtual object (e.g. a person), and so on.
  It comes within the Uniform Resource Identifiers <b>(URI)</b>. URI is the simplest element of the Web architecture and the most important.
 
-### Open API
+### 1.1. Open API
 
 - You <b>MUST define your REST contracts</b> using OpenAPI.
 - Your <b>REST API SHOULD</b> be well documented using OpenAPI.
@@ -14,6 +14,8 @@ REST stands for <b>REpresentation State Transfer (REST)</b>. Any information tha
 - REST APIs MAY be be defined using OpenAPI v3.0.0+ when the HATEOAS constraint is required.
 - HATEOAS is an complex and expensive constraint to meet. It should not be the default choice for any API.
 - Migration to OAS v3.0.0+ is planned for future phases of OpenAPI adoption.
+
+### 1.2. Open API Levels
 
 #### Richardson Model Maturity
 
@@ -26,9 +28,8 @@ Level | Name | Description
 - APIs SHOULD strive to meet Level 2: HTTP Verbs in the Richardson Maturity Model.
 - APIs SHOULD NOT strive to meet Level 3: Hypermedia controls in the Richardson Maturity Model.
 
-### Open API Levels
 
-#### 1. Entry level
+#### Entry level
 The version of the operations/resources are specified as a integer in the basepath
 - Scheme is set to https only 
 - API Keys are only accepted as header parameters 
@@ -39,7 +40,7 @@ The version of the operations/resources are specified as a integer in the basepa
 - Applies the prescribed security practice 
 - Request objects are validated
 
-#### 2. Advance level
+#### Advance level
 - Meets all of the Entry level requirements 
 - Conforms to the Finastra error handling standards 
 - Swagger descriptions are used well to generate good human readable automatically generated docs. In other words copy for all of the descriptions are supplied or approved by Product Management or functional representative for the Product  # Full level 
@@ -47,8 +48,11 @@ The version of the operations/resources are specified as a integer in the basepa
 - Applies all of the Finastra approved data structures and naming conventions to the Swagger paths and definitions 
 - usage of links and HOATEAS likes
 
-#### 3. Cutting edge
+#### Cutting edge
 - Meets all of the Fully Compliant level requirements 
 - Is up to date within 6 month of any additions to the Finastra Open API Standards 
 - Good use of markdown in descriptions
 
+## 2. Naming conventions
+
+### 2.1. Resources
