@@ -12,4 +12,7 @@
 - RESTful API and i18n: how to design the response? : (https://softwareengineering.stackexchange.com/questions/340469/restful-api-and-i18n-how-to-design-the-response)
 - Internationalization in Spring Boot Rest API(s): https://www.youtube.com/watch?v=Y7pHhui0cD4
 
+## 3. How to version an API
+- Versioning de services REST: https://blog.octo.com/versioning-de-services-rest/
+- Four REST API Versioning Strategies: https://www.xmatters.com/integrations-blog/blog-four-rest-api-versioning-strategies/
 
