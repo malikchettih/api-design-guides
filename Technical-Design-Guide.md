@@ -8,11 +8,12 @@ Warning: This document is copy/past notes from https://github.corp.dh.com/pages/
 - [3. HTTP Methods](#3)
 - [4. HTTP Headers](#4)
 - [5. Error Codes & RFC 7807](#5)
-- [6. Navigation, Sorting, paging, filtering and seraching and projection](#6)
-- [7. Asynchronous and long running operation](#7)
-- [8. Caching](#8)
-- [9. Concurrency](#9)
-- [10. Tokenization](#10)
+- [6. Versioning](#6)
+- [7. Navigation, Sorting, paging, filtering and seraching and projection](#6)
+- [8. Asynchronous and long running operation](#8)
+- [9. Caching](#9)
+- [10. Concurrency](#10)
+- [11. Tokenization](#11)
 
 
 ## <a id="1">1. Rest Principals</a>
@@ -322,13 +323,60 @@ Here is a sample including as well a Zalando extension for chaining errors "caus
 }
 ```
 
+## <a id="6">6. Versioning</a>
 
-## <a id="6">6. Navigation, Sorting, paging, filtering and seraching and projection</a>
+For details on functional versioning please refere to the [Functional-Design-Guide.md](Functional-Design-Guide.md#apiversionning).
 
-## <a id="7">7. Asynchronous and long running operation</a>
+### Rest Versioning 
 
-## <a id="8">8. Caching</a>
+The most common versioning techniques in the industry today include:
+- Path
+- Query
+- Custom headers
+- Accept header with custom types
 
-## <a id="9">9. Concurrency</a>
+Version format
+- Integer: 1, 2, 3
+- Integer with prefix: v1, v2, v3
+- Semantic with prefix: v1.0.0, v1.1.0, v2.0.0
+- Date: 2017-12-25
 
-## <a id="10">10. Tokenization</a>
+#### Path parameter (URL-based)
+Request Example:
+```
+GET https://myhostname/mydomain/{version}/{resource} HTTP/1.1
+Accept: application+json
+```
+#### Query parameter
+Request Example:
+```
+GET https://myhostname/mydomain/{resource}?v={version} HTTP/1.1
+Accept: application+json
+```
+#### Custom headers
+Request Example:
+```
+GET https://{host}/{resource} HTTP/1.1
+Accept: application+json
+X-API-Version: {version}
+```
+#### Accept header with custom types
+Request Example:
+```
+GET https://{host}/{resource} HTTP/1.1
+Accept: application/vnd.{product}.{version}+json
+```
+### Method choosed
+
+- APIs MUST declare versions via <b>path parameter</b>. https://{host}/:version/{resource}
+- APIs MUST NOT use semantic versioning.
+
+## <a id="7">7. Navigation, Sorting, paging, filtering and seraching and projection</a>
+
+## <a id="8">8. Asynchronous and long running operation</a>
+
+## <a id="9">9. Caching</a>
+
+## <a id="10">10. Concurrency</a>
+
+## <a id="11">11. Tokenization</a>
