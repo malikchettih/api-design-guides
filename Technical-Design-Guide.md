@@ -1,5 +1,5 @@
 # Technical Design Guide
-Warning: This document is only copy/past notes from https://github.corp.dh.com/pages/ARPnP/api-design/ documents.
+Warning: This document is copy/past notes from https://github.corp.dh.com/pages/ARPnP/api-design/ documents.
 
 ## Summary
 
@@ -248,3 +248,12 @@ https://{host}/accounts/{id}/close-account
 ```
 
 ## <a id="4">4. HTTP Headers</a>
+
+Header | Description
+------ | -----------
+Content-Type | Represents the format of the payload returned in the response. The first class candidate Content-type is application/json, as a content header in response to requests that return a HTTP body (all post and get requests)
+Accept | Represents the format of the payload as input. The first class candidate and default value for server is application/json
+Authorization | Allows Credentials to be provided to the Authorization / Resource Server depending on the type of resource being requested. For OAuth 2.0 / OIDC, this comprises of either the Basic / Bearer Authentication Schemes. Bearer token MUST follow the https://tools.ietf.org/html/rfc6750
+
+## <a id="5">5. Error Codes</a>
+
