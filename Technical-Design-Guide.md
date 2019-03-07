@@ -77,3 +77,53 @@ paths:  
 - <b>MUST follow</b> lower train case, also called kebab case, or lisp case, meaning hyphen ( - ) is the separator.
 
 #### URI for dedicated action
+
+In several use cases HTTP REST verb is not enough, because of the nature of the application, and the action we need to do on the resource. This can be called resource controller, basically it is an action that you set on top of a resource.
+
+```
+ POST 
+    /accounts/{accountId}/transactions/{transid}/confirm
+    , would confirm an existing transaction     
+ but as same this would be     
+ POST 
+    /accounts/{accountId}/transactions/{transid}/confirmation, 
+    that would create a confirmation
+```
+
+Stick to HTTP Verbs for CRUD operation. Actions and Commands SHOULD be a verb in present tense. Queries SHOULD be a pluralized noun.
+
+#### Resource Identifier
+
+Resource <b>MUST</b> be identified within the path, and not the path parameter.
+
+<b>GET /accounts/{identifier}</b> MUST be the way to get a resource 
+<b>GET /accounts?id={identifier}</b> can be used to retrieve a resource but in the semantic of doing a narrow search. and so should be avoided
+
+<b>As a main rule you SHOULD not expose any logic inside the key/identifier.</b>
+
+#### Child Resource
+
+Use child resources when a resource logically contains other resources through aggregation.
+```
+/accounts/{id}/transactions
+```
+
+### 2.1. Resource Payload
+
+- Attributes, parameter <b>MUST</b> be in lower <b>camelCase</b>.
+- Child properties, <b>SHOULD not</b> repeat the parent key .
+
+## 3. HTTP Methods
+
+APIs MUST use the HTTP verbs as much as possible and follow ths semantic. APIs MUST NOT redefine the meaning of the standard HTTP methods. Handling single entity with {id} is a MUST Handling collection is highly recommended
+
+HTTP | Verbs Action
+---- | ------------
+POST | Creation of a new resource
+GET | Read-only; should not change any state
+PUT | Full update/replace of the resource
+PATCH | Partial update of a resource <b>(typically avoided)</b>
+DELETE | Delete a resource
+
+
+
