@@ -209,3 +209,34 @@ Typical response status code:
 - 404 Not Found, if ID not found or invalid
 
 ### 3.5. Bulk Operations
+- only implement bulk methods when necessary otherwise use series of simple call
+- bulk operation SHOULD be atomic so when succeed all succeed, when fail all is rolledback
+- consider how concurrency is controlled for bulk operations
+- consider treating bulk operations as a long-running operation
+- consider segregating bulk methods from the resource they operate upon
+- consider how error handling will be reported back to the API consumer for each failed operation within the bulk operation
+- consider whether a bulk upsert is feasible for simple bulk CRUD APIs
+
+### 3.6. Other Actions
+
+<b>Actions</b> are business capabilities which do not directly map to an existing HTTP method. These may be anything from a simple stateless function, without a resource representation, to complex workflows which interact with multiple resources.
+
+#### Resource-less Actions
+```
+POST:
+https://{host}/atm/transfer-funds
+{
+  "account-1": "...",
+  "account-2": "...",
+  "amount": "...",
+...
+}
+```
+
+#### Resource-based Actions
+```
+POST:
+https://{host}/accounts/{id}/close-account
+```
+
+## 4. HTTP Headers
