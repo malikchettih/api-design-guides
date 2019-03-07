@@ -10,3 +10,6 @@ The goal of the respoitory is to collect my notes on differents aspects and topi
 
 ## Trainings 
 - [Pluralsight Trainings](./Pluralsight-Trainings.md) 
+
+## Questions
+- [Questions](./Questions.md)
