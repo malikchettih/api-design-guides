@@ -4,6 +4,7 @@ The goal of the respoitory is to collect my notes on differents aspects and topi
 ## Guides
 - [Funtional Guide](./Functional-Design-Guide.md)
 - [Technical Guide](./Technical-Design-Guide.md)
+- [API Management Tools](./API-ManagementTool.md)
 
 ## APIs in the Azure Cloud
 - [Azure Microsoft documentation](./API-MicrosoftAzure.md)
