@@ -56,3 +56,24 @@ The version of the operations/resources are specified as a integer in the basepa
 ## 2. Naming conventions
 
 ### 2.1. Resources
+A key principle of REST involves separating your API into logical resources. These resources are manipulated using HTTP methods, and custom actions, which have semantic meaning for the resource.
+
+Qualities of a resource:
+- can be described by a noun 
+- are concrete concepts 
+- have a unique URL
+
+<b>Use noun for resource Use plural for resource, that can return a collections Be consistent in plural singular. if a collection model exists it apply to all Use verb for action, but use classical HTTP verbs as much as possible.
+</b>
+```
+paths:   
+  /accounts:     
+    "GET" < return a list     
+    "POST" > create a single entity
+```
+#### Composite and path naming
+
+- Resource <b>MUST not</b> contains char that requires URL encoding like space.
+- <b>MUST follow</b> lower train case, also called kebab case, or lisp case, meaning hyphen ( - ) is the separator.
+
+#### URI for dedicated action
