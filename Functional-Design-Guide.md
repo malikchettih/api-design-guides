@@ -3,7 +3,9 @@ Warning: This document is only copy/past notes from https://github.corp.dh.com/p
 
 When designing an API, pause for a second and think. What are the forces driving changes in my product.
 
-## 1. Open API Design
+- [1. Open API Design](#openapi)
+
+## <a id="openapi">1. Open API Design</a>
 
 When API model is designed, it has to be:
 ### Be "Semantically Right", not just "Syntactically Right".
