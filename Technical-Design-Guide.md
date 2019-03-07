@@ -271,3 +271,9 @@ Response Code | Description
 415 | <b>Unsupported Media Type</b>  status code indicates that the origin server is refusing to service the request because the payload is in a format not supported
 404 | <b>Not Found</b>  must be used when a client’s URI cannot be mapped to a resource.The 404 error status code indicates that the REST API can’t map the client’s URI to a resource.
 500 | <b>Internal Server Error.</b>  A generic error message, given when an unexpected condition was encountered and no more specific message is suitable
+
+Conclusion :
+- 200, 400, 401,404, 500 are Mandatory ( 200 OK / 400 client error / 500 server error )
+- 201, 304,400,403 SHOULD BE used.
+- Others like 204, 415, 503 MAY be used with parsimony
+- APIs MUST NOT return 200 (OK) when there is an error or fault.
