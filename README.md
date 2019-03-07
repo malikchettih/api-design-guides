@@ -5,5 +5,8 @@ The goal of the respoitory is to collect my notes on differents aspects and topi
 - [Funtional Guide](./Functional-Design-Guide.md)
 - [Technical Guide](./Functional-Design-Guide.md)
 
+## Resources
+- [Collected Resources](./Resources.md)
+
 ## Trainings 
 - [Pluralsight Trainings](./Pluralsight-Trainings.md) 
