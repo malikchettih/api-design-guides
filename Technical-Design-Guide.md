@@ -1,7 +1,15 @@
 # Technical Design Guide
 Warning: This document is only copy/past notes from https://github.corp.dh.com/pages/ARPnP/api-design/ documents.
 
-## 1. Rest Principals
+## Summary
+
+- [1. Rest Principals](#1)
+- [2. Naming conventions](#2)
+- [3. HTTP Methods](#3)
+- [4. HTTP Headers](#4)
+
+
+## <a id="1">1. Rest Principals</a>
 
 REST stands for <b>REpresentation State Transfer (REST)</b>. Any information that can be named can be a resource: a document or image, a temporal service (e.g. "today’s weather in Los Angeles"), a collection of other resources, a non-virtual object (e.g. a person), and so on.
  It comes within the Uniform Resource Identifiers <b>(URI)</b>. URI is the simplest element of the Web architecture and the most important.
@@ -54,7 +62,7 @@ The version of the operations/resources are specified as a integer in the basepa
 - Is up to date within 6 month of any additions to the Finastra Open API Standards 
 - Good use of markdown in descriptions
 
-## 2. Naming conventions
+## <a id="2">2. Naming conventions</a>
 
 ### 2.1. Resources
 A key principle of REST involves separating your API into logical resources. These resources are manipulated using HTTP methods, and custom actions, which have semantic meaning for the resource.
@@ -114,7 +122,7 @@ Use child resources when a resource logically contains other resources through a
 - Attributes, parameter <b>MUST</b> be in lower <b>camelCase</b>.
 - Child properties, <b>SHOULD not</b> repeat the parent key .
 
-## 3. HTTP Methods
+## <a id="3">3. HTTP Methods</a>
 
 APIs MUST use the HTTP verbs as much as possible and follow ths semantic. APIs MUST NOT redefine the meaning of the standard HTTP methods. Handling single entity with {id} is a MUST Handling collection is highly recommended
 
@@ -239,4 +247,4 @@ POST:
 https://{host}/accounts/{id}/close-account
 ```
 
-## 4. HTTP Headers
+## <a id="4">4. HTTP Headers</a>
