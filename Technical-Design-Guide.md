@@ -7,6 +7,7 @@ Warning: This document is copy/past notes from https://github.corp.dh.com/pages/
 - [2. Naming conventions](#2)
 - [3. HTTP Methods](#3)
 - [4. HTTP Headers](#4)
+- [5. Error Codes](#5)
 
 
 ## <a id="1">1. Rest Principals</a>
@@ -257,3 +258,17 @@ Authorization | Allows Credentials to be provided to the Authorization / Resourc
 
 ## <a id="5">5. Error Codes</a>
 
+Response Code | Description
+------------- | -----------
+200 | <b>OK</b> Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request, the response will contain an entity describing or containing the result of the action.
+201 | <b>Created</b> The request has been fulfilled, resulting in the creation of a new resource
+204 | <b>No content</b> the server has successfully fulfilled the request and that there is no additional content to send in the response payload body.
+304 | <b>Not Modified</b> RFC 7232 Indicates that the resource has not been modified since the version specified by the request headers If-Modified-Since or If-None-Match. In such case, there is no need to retransmit the resource since the client still has a previously downloaded copy.
+400 | <b>Bad Request</b> The server cannot or will not process the request due to an apparent client error (e.g., malformed request syntax, size too large, invalid request message framing, or deceptive request routing)
+401 | <b>Unauthorized</b>must be used when there is a problem with the client’s credentials. A 401 error response indicates that the client tried to operate on a protected resource without providing the proper authorization. It may have provided the wrong credentials or none
+at all.
+403 Forbidden | <b>Forbidden</b> should be used to forbid access regardless of authorization state. A 403 error response indicates that the client’s request is formed correctly, but the REST API refuses to honor it. A 403 response is not a case of insufficient client credentials; that would be
+401 | <b>(“Unauthorized”)</b> . REST APIs use 403 to enforce application-level permissions. For example, a client may be authorized to interact with some, but not all of a REST API’s resources. If the client attempts a resource interaction that is outside of its permitted scope, the REST API should respond with 403.
+415 | <b>Unsupported Media Type</b>  status code indicates that the origin server is refusing to service the request because the payload is in a format not supported
+404 | <b>Not Found</b>  must be used when a client’s URI cannot be mapped to a resource.The 404 error status code indicates that the REST API can’t map the client’s URI to a resource.
+500 | <b>Internal Server Error.</b>  A generic error message, given when an unexpected condition was encountered and no more specific message is suitable
