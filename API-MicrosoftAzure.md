@@ -6,4 +6,5 @@
 
 ## Moking in Azure
 - [API Mocking in Azure] https://almtools/confluence/display/FFIC/API+Mocking+in+Azure
+- [Open API with Azure Functions] https://almtools/confluence/display/FFIC/Open+API+with+Azure+Functions
 
