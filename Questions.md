@@ -24,4 +24,13 @@
 - Zalando problem-spring-web implementation : https://github.com/zalando/restful-api-guidelines
 - Zalando problem implementation: https://github.com/zalando/problem
 
+## 5. How to implements FIQL search
+- Tutorial: Smarter search with FIQL and Apache CXF: https://jaxenter.com/tutorial-smarter-search-with-fiql-and-apache-cxf-106000.html
+- Simplifying RESTful Search: https://www.javacodegeeks.com/2012/01/simplifying-restful-search.html
+
+## 6. How to implements RSQL search
+- REST Query Language with RSQL: https://www.baeldung.com/rest-api-search-language-rsql-fiql
+- Smarter search with RSQL: https://aboullaite.me/rsql/
+
+
 
