@@ -465,10 +465,84 @@ A convenient , and proven solution for search is using SQL, with operator like A
 - https://tools.ietf.org/html/draft-nottingham-atompub-fiql-00
 - https://github.com/jirutka/rsql-parser
 
+Filtering <b>SHOULD</b> be done with GET as query parameter this allows the search to be bookmarked.
+<b>RSQL/FIQL</b> syntax <b>MAY</b> be used for the GET on the search resource.
+```
+GET /users?firstName=bob&lastname=tomak // basic solution using query parameter
+GET /users/search?firstName=bob&lastname=tomak // basic solution using a dedicated endpoint
+GET /users/search/mostActive // 'wellknown search'
+GET /users/search/age=lt=5;age=gt=30 //using FIQL
+```
+
+### Projection, and dynamic content
+
+When client knows that the payload can be heavy, and client is only interested with a subset of field a common way is to specify the lists of fields and sub fields he is interested in.
+
+Example :
+```
+GET:
+https://{host}/tickets?fields=subject,customerName,updatedAt
+...
+{
+  "subject": "...",
+  "customerName": "...",
+  "updatedAt": "..."
+}
+```
 
 ## <a id="8">8. Asynchronous and long running operation</a>
 
+Long running operations are treated like threads, or similar modern abstractions (e.g., Tasks, Futures). There are three common interfaces (listed in increasing levels of complexity):
+
+1. Long Polling
+2. Webhooks
+3. Websockets
+
+### Long Polling (Basic Solution)
+Long polling is one of the easiest solution to put in place. the principle is the long running task return an id and the response status code 202 "The request has been accepted for processing, but the processing has not been completed". then the client pool for the new created resource and get a 202 till the action is completed.
+
+```
+Request (create task)
+POST /complexReport HTTP/1.1
+{...}
+
+Response (return task Id) - Return the 202 Accepted HTTP response code.
+HTTP/1.1 202 Accepted
+Location: /complexReport/ef07186e-55d4-4db6-b160-f9afaa195d0a
+
+Request (request task status by Id)
+GET /complexReport/ef07186e-55d4-4db6-b160-f9afaa195d0a HTTP/1.1
+Accept: application+json
+
+Response (return status or redirect to task return value)
+HTTP/1.1 202 Accepted
+Location: /complexReport/ef07186e-55d4-4db6-b160-f9afaa195d0a
+{
+"status": "..."
+}
+
+Last
+HTTP/1.1 200 OK
+Location: /complexReport/ef07186e-55d4-4db6-b160-f9afaa195d0a
+{
+"reportData": [ ... ]
+}
+
+```
+
+### Webhooks
+Webhooks are HTTP callbacks that receive notification messages for events. we distinguish 2 kind of webhook the 1 to 1 model and the 1 to many.
+<b>TO BE EXPLORED</b>
+
+### Websockets
+Websocket mechanism of upgrading protocol from HTTP to websocket is describe in the RFC6455. still there is no specification of the content it self of the message on the wire. In term of open API policies , websocket are not compliant with swagger. There is standards emerging to describe this like asyncAPI.
+
+https://www.asyncapi.com/docs/getting-started/
 ## <a id="9">9. Caching</a>
+
+consider Cache-Control header remember to use Last-Modified header remember to use ETag header (either strong or weak) consider supporting conditional requests consider enabling caching in Azure API Management, or your equivalent API Gateway.
+
+APIs <b>MUST</b> prevent clients and intermediaries from caching sensitive information.
 
 ## <a id="10">10. Concurrency</a>
 
