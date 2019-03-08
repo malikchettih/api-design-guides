@@ -457,8 +457,13 @@ GET /orders?limit=3&offset=3
 ```
 #### Solution 3 -  Json Hypertext Application Language (HAL)
 HAL, is defined as currently a draft https://tools.ietf.org/html/draft-kelly-json-hal-08
-
 Java HAL impelmentation can be found in https://github.com/mikekelly/hal_specification/wiki/Libraries#java
+
+### Filtering & Searching
+
+A convenient , and proven solution for search is using SQL, with operator like AND , OR. In the REST context usage or RSQL / FIQL syntax may be used. Details about those 2 standards are available. Still using RSQL a particular care MUST be done for SQL injection, and this even if behind the scene it is not a SQL engine.
+- https://tools.ietf.org/html/draft-nottingham-atompub-fiql-00
+- https://github.com/jirutka/rsql-parser
 
 
 ## <a id="8">8. Asynchronous and long running operation</a>
