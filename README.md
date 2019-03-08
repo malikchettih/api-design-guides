@@ -8,6 +8,8 @@ The goal of the respoitory is to collect my notes on differents aspects and topi
 - [Security Guide](./API-Security.md)
 - [Integration Pattern Guide](./API-IntegrationPattern.md)
 
+## Open API & Swagger
+- [Swagger the tool](./Swagger-Tool.md)
 
 ## APIs in the Azure Cloud
 - [Azure Microsoft documentation](./API-MicrosoftAzure.md)
