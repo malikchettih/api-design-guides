@@ -10,6 +10,7 @@ The goal of the respoitory is to collect my notes on differents aspects and topi
 
 ## Open API & Swagger
 - [Swagger the tool](./Swagger-Tool.md)
+- [Open API](./OpenAPI.md)
 
 ## APIs in the Azure Cloud
 - [Azure Microsoft documentation](./API-MicrosoftAzure.md)
