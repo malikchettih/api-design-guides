@@ -10,6 +10,7 @@ docker run -p 80:8080 swaggerapi/swagger-editor
 ```
 
 ## Documentation
+- Swagger Basic structure : https://swagger.io/docs/specification/basic-structure/
 - Swagger Code generation documentation: https://swagger.io/docs/#swagger-codegen-documentation-9
 - Swagger Editor: https://swagger.io/docs/open-source-tools/swagger-editor/#swagger-codegen-documentation-9
 
